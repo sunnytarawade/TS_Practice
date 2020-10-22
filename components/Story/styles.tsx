@@ -5,6 +5,7 @@ export const StoryBox = styled.div`
   margin: 20px;
   border: 1px solid goldenrod;
   width: 40%;
+  box-shadow : 2px 5px 8px #888888 ;
 `;
 
 export const StoryTitle = styled.h2`
@@ -29,4 +30,9 @@ export const StoryOtherDetails = styled.p`
 
 export const StoryButton = styled.button`
   padding: 10px;
+  box-shadow : 2px 5px 8px #888888 ;
+  background-color : #ffa9d7;
+  color : #29081a;
+  border : none;
+  border-radius : 3px;
 `;
