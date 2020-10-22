@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import Story, { StoryProps } from "./Story";
+import Story, { StoryProps } from "../Story/index";
+import {DashboardTitle,DashboardUser,StoriesContainer} from './styles'
+
 
 interface UserDetailsProps {
   userName: string;
@@ -24,16 +26,17 @@ export class Dashboard extends Component<ExtraUserDetails> {
       {
         storyName: "Story 2",
         storyBody: "Lorem ipsum something something",
+        otherDetails : "Comedy"
       },
+      
     ];
 
     return (
       <div>
-        <h1>Dashboard</h1>
-        <div className="User">
-          <h2>{this.props.userName}</h2>
-        </div>
+        <DashboardTitle>Dashboard</DashboardTitle>
+        <DashboardUser>{this.props.userName}</DashboardUser>
 
+        <StoriesContainer>
         {storyArray.map((story: StoryProps) => {
           i++;
           return (
@@ -45,6 +48,7 @@ export class Dashboard extends Component<ExtraUserDetails> {
             />
           );
         })}
+        </StoriesContainer>
       </div>
     );
   }

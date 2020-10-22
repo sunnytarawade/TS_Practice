@@ -1,9 +1,15 @@
 import React from "react";
-import "./App.css";
-import Dashboard, { ExtraUserDetails } from "./components/Dashboard";
+import Dashboard, { ExtraUserDetails } from "./components/Dashboard/index";
+import styled from "styled-components";
+import GlobalStyles from './styles/GlobalStyles'
+
+const AppContainer = styled.div`
+  min-height : 100vh;
+  text-align: center;
+  background-color: lightyellow;
+`;
 
 function App(): JSX.Element {
-
   const propsObject: ExtraUserDetails = {
     userName: "Sunny",
     userId: 123,
@@ -12,7 +18,11 @@ function App(): JSX.Element {
 
   return (
     <div className="App">
-      <Dashboard {...propsObject} />
+      <AppContainer>
+        <Dashboard {...propsObject} />
+      </AppContainer>
+
+      <GlobalStyles />
     </div>
   );
 }

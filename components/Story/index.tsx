@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import "./Story.css";
-
+import {StoryBox,StoryBody, StoryButton, StoryDate, StoryTitle,StoryOtherDetails} from './styles'
 export type StoryProps = {
   storyName: string;
   storyBody: string;
-  otherDetails?: string | "No other details";
+  otherDetails?: 'Comedy' | 'Horror';
 };
 
 type refreshDate = (d: Date) => string;
@@ -27,13 +26,17 @@ const Story: React.FC<StoryProps> = ({
   }
 
   return (
-    <div className="Story">
-      <h1>{storyName}</h1>
-      <h2>{dateString}</h2>
-      <p>{storyBody}</p>
-      <p>{otherDetails}</p>
-      <button onClick={handleClick}>Refresh Date</button>
-    </div>
+    <StoryBox>
+      <StoryTitle>{storyName}</StoryTitle>
+      <StoryDate>{dateString}</StoryDate>
+      <StoryBody>
+        {storyBody}
+        <StoryOtherDetails>{otherDetails || "No Other Details"}</StoryOtherDetails>
+      </StoryBody>
+      
+      {/* <button onClick={handleClick}>Refresh Date</button> */}
+      <StoryButton onClick={handleClick}>Refresh Date</StoryButton>
+      </StoryBox>
   );
 };
 
